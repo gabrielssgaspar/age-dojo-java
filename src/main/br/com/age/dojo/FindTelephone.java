@@ -7,5 +7,9 @@ public class FindTelephone {
 		
 		
 	}
+
+	public char digitOf(char c) {
+		return '_';
+	}
 	
 }
