@@ -1,6 +1,7 @@
 package br.com.age.dojo;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 /*
@@ -30,12 +31,27 @@ public class ATMachine {
 	public Map<Bill, Integer> withdrawn(int amount) {
 		
 		if ( amount == 0 ) {
-			throw new IllegalArgumentException("");
+			throw new IllegalArgumentException("Zero is a invalid amount to withdraw!");
+		}
+
+		Map<Bill, Integer> withdrawn = new HashMap<Bill, Integer>();
+		for ( Bill bill : Bill.values() ) {
+			
+			if ( amount < bill.value() ) {
+				continue;
+			}
+			
+			withdrawn.put(bill, amount / bill.value());
+			amount = amount % bill.value();
+		}
+		
+		if ( amount == 0 ) {
+			return withdrawn;
 		}
 		
 		return Collections.EMPTY_MAP;
 	}
-	
+
 }
 
 enum Bill {
