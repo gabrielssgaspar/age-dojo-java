@@ -28,6 +28,11 @@ public class ATMachine {
 	}
 
 	public Map<Bill, Integer> withdrawn(int amount) {
+		
+		if ( amount == 0 ) {
+			throw new IllegalArgumentException("");
+		}
+		
 		return Collections.EMPTY_MAP;
 	}
 	

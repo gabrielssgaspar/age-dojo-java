@@ -16,7 +16,7 @@ public class ATMachineTest {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void should_not_withdraw_if_amount_is_zero() {
-		fail();
+		atm.withdrawn(0);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
