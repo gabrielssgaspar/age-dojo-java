@@ -1,6 +1,7 @@
 package br.com.age.dojo;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
