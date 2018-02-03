@@ -1,6 +1,5 @@
 package br.com.age.dojo;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,10 +23,6 @@ import java.util.Map;
  */
 public class ATMachine {
 
-	public static void main(String[] args) {
-		
-	}
-
 	public Map<Bill, Integer> withdrawn(int amount) {
 		
 		if ( amount == 0 ) {
@@ -49,7 +44,7 @@ public class ATMachine {
 			return withdrawn;
 		}
 		
-		return Collections.EMPTY_MAP;
+		throw new IllegalArgumentException("Have no available bill for the amount!");
 	}
 
 }

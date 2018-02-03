@@ -1,7 +1,6 @@
 package br.com.age.dojo;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.util.Map;
 
@@ -24,7 +23,7 @@ public class ATMachineTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void should_not_withdraw_if_an_unavailable_bill_is_required() {
-		fail();
+		atm.withdrawn(5);
 	}
 
 	@Test
