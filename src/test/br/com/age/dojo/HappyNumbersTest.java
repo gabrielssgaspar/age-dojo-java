@@ -1,7 +1,8 @@
 package br.com.age.dojo;
 
-import static org.junit.Assert.fail;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -24,14 +25,29 @@ public class HappyNumbersTest {
 		assertEquals(1, happyNumbers.nextOf(10));
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public void should_throws_exception_when_zero_is_received() {
-		fail();
-	}
-	
 	@Test
-	public void should_verify_a_happy_number() {
-		fail();
+	public void should_verify_if_a_number_is_a_happy_number_or_not() {
+		assertFalse(happyNumbers.verify(0));
+		assertTrue(happyNumbers.verify(1));
+		assertFalse(happyNumbers.verify(2));
+		assertFalse(happyNumbers.verify(3));
+		assertFalse(happyNumbers.verify(4));
+		assertFalse(happyNumbers.verify(5));
+		assertFalse(happyNumbers.verify(6));
+		assertTrue(happyNumbers.verify(7));
+		assertFalse(happyNumbers.verify(8));
+		assertFalse(happyNumbers.verify(9));
+		assertTrue(happyNumbers.verify(10));
+		assertFalse(happyNumbers.verify(11));
+		assertFalse(happyNumbers.verify(12));
+		assertTrue(happyNumbers.verify(13));
+		assertFalse(happyNumbers.verify(14));
+		assertFalse(happyNumbers.verify(15));
+		assertFalse(happyNumbers.verify(16));
+		assertFalse(happyNumbers.verify(17));
+		assertFalse(happyNumbers.verify(18));
+		assertTrue(happyNumbers.verify(19));
+		assertFalse(happyNumbers.verify(20));
 	}
 	
 }

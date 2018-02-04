@@ -1,5 +1,8 @@
 package br.com.age.dojo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*
  * Para saber se um número é feliz, você deve obter o quadrado de cada dígito deste número,
  * em seguida você faz a soma desses resultados. A seguir o mesmo procedimento deve ser
@@ -18,6 +21,19 @@ package br.com.age.dojo;
  */
 
 public class HappyNumbers {
+	
+	public boolean verify(int number) {
+		
+		Set<Integer> numbers = new HashSet<Integer>();
+		
+		while ( numbers.add(number) ) {
+			
+			number = nextOf(number);
+			if ( number == 1 ) return true;
+		}
+		
+		return false;
+	}
 
 	public int nextOf(int number) {
 		
