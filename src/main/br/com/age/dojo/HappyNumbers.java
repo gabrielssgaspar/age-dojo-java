@@ -19,6 +19,16 @@ package br.com.age.dojo;
 
 public class HappyNumbers {
 
-	
+	public int nextOf(int number) {
+		
+		int next = 0;
+				
+		do {
+			next += Math.pow(number % 10, 2);
+			number /= 10;
+		} while ( number > 0);
+		
+		return next;
+	}
 	
 }
