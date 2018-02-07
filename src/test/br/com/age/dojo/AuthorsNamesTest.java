@@ -22,5 +22,13 @@ public class AuthorsNamesTest {
 		assertEquals("SANTOS NETO", authorsNames.surname("João dos Santos Neto"));
 		assertEquals("GASPAR", authorsNames.surname("Gabriel dos Santos Silva Gaspar"));
 	}
+	
+	@Test
+	public void should_return_forename_only() {
+		assertEquals("", authorsNames.forename("Guimaraes"));
+		assertEquals("João", authorsNames.forename("João Filho"));
+		assertEquals("João dos", authorsNames.forename("João dos Santos Neto"));
+		assertEquals("Gabriel dos Santos Silva", authorsNames.forename("Gabriel dos Santos Silva Gaspar"));
+	}
 
 }

@@ -41,7 +41,7 @@ import java.util.List;
  */
 public class AuthorsNames {
 
-	private static final List<String> SURNAMES = Arrays.asList(
+	private static final List<String> SPECIAL_SURNAMES = Arrays.asList(
 		"FILHO", "FILHA", "NETO", "NETA", "SOBRINHO", "SOBRINHA", "JUNIOR"
 	);
 
@@ -56,9 +56,29 @@ public class AuthorsNames {
 			lastWord = words.removeLast().toUpperCase();
 			surname = lastWord + " " + surname;
 			
-		} while ( SURNAMES.contains(lastWord) && words.size() > 1 );
+		} while ( SPECIAL_SURNAMES.contains(lastWord) && words.size() > 1 );
 		
 		return surname.trim();
+	}
+
+	public String forename(String name) {
+		
+		if ( !name.contains(" ") ) {
+			return "";
+		}
+
+		String forename = removeLastWord(name);
+		
+		if ( surname(name).contains(" ") ) {
+			forename = removeLastWord(forename);
+		}
+		
+		return forename;
+		
+	}
+
+	private String removeLastWord(String name) {
+		return name.substring(0, name.lastIndexOf(" "));
 	}
 
 }
