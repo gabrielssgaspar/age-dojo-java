@@ -81,4 +81,13 @@ public class AuthorsNames {
 		return name.substring(0, name.lastIndexOf(" "));
 	}
 
+	public String authoringName(String name) {
+		
+		if ( !name.contains(" ") ) {
+			return name.toUpperCase();
+		}
+		
+		return surname(name) + ", " + forename(name);
+	}
+
 }

@@ -30,5 +30,13 @@ public class AuthorsNamesTest {
 		assertEquals("João dos", authorsNames.forename("João dos Santos Neto"));
 		assertEquals("Gabriel dos Santos Silva", authorsNames.forename("Gabriel dos Santos Silva Gaspar"));
 	}
+	
+	@Test
+	public void should_return_complete_authoring_name() {
+		assertEquals("GUIMARAES", authorsNames.authoringName("Guimaraes"));
+		assertEquals("FILHO, João", authorsNames.authoringName("João Filho"));
+		assertEquals("SANTOS NETO, João dos", authorsNames.authoringName("João dos Santos Neto"));
+		assertEquals("GASPAR, Gabriel dos Santos Silva", authorsNames.authoringName("Gabriel dos Santos Silva Gaspar"));
+	}
 
 }
