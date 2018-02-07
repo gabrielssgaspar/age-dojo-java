@@ -1,5 +1,9 @@
 package br.com.age.dojo;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /*
  * NOMES DE AUTORES DE OBRAS BIBLIOGRÁFICAS
  * 
@@ -36,7 +40,25 @@ package br.com.age.dojo;
  * - "da", "de", "do", "das", "dos" não fazem parte do sobrenome e não iniciam por letra maiúscula.
  */
 public class AuthorsNames {
-	
-	
+
+	private static final List<String> SURNAMES = Arrays.asList(
+		"FILHO", "FILHA", "NETO", "NETA", "SOBRINHO", "SOBRINHA", "JUNIOR"
+	);
+
+	public String surname(String name) {
+		
+		LinkedList<String> words = new LinkedList<String>(Arrays.asList(name.split(" ")));
+		
+		String surname = "", lastWord;
+		
+		do {
+			
+			lastWord = words.removeLast().toUpperCase();
+			surname = lastWord + " " + surname;
+			
+		} while ( SURNAMES.contains(lastWord) && words.size() > 1 );
+		
+		return surname.trim();
+	}
 
 }
