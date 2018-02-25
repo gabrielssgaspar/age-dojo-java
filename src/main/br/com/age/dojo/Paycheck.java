@@ -80,4 +80,15 @@ public class Paycheck {
 		return calculate(valueInFull.split("mil")[0]) * 1000.0;
 	}
 
+	public double hundredsValueOf(String valueInFull) {
+		
+		if ( !valueInFull.contains("real") && !valueInFull.contains("reais") ) {
+			return 0.0;
+		}
+		
+		int index = valueInFull.contains("mil") ? 1 : 0;
+		
+		return calculate(valueInFull.split("mil|real|reais")[index]);
+	}
+
 }
