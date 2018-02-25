@@ -91,4 +91,14 @@ public class Paycheck {
 		return calculate(valueInFull.split("mil|real|reais")[index]);
 	}
 
+	public double centsValueOf(String valueInFull) {
+		
+		if ( !valueInFull.contains("centavo") ) {
+			return 0.0;
+		}
+		
+		String[] array = valueInFull.split("mil|real|reais|centavos|centavo");
+		return calculate(array[array.length-1]) * 0.01;
+	}
+
 }

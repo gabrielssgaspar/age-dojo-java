@@ -36,4 +36,11 @@ public class PaycheckTest {
 		assertEquals(0.0, paycheck.hundredsValueOf("dezoito centavos"), 0.0001);
 	}
 	
+	@Test
+	public void should_return_the_cent_value() {
+		assertEquals(0.18, paycheck.centsValueOf("dois mil quinhentos e vinte e tres reais e dezoito centavos"), 0.0001);
+		assertEquals(0.75, paycheck.centsValueOf("quinhentos e vinte e tres reais e setenta e cinco centavos"), 0.0001);
+		assertEquals(0.0, paycheck.centsValueOf("um mil reais"), 0.0001);
+	}
+	
 }
