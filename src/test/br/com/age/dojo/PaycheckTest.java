@@ -34,6 +34,7 @@ public class PaycheckTest {
 		assertEquals(3.0, paycheck.hundredsValueOf("tres reais e dezoito centavos"), 0.0001);
 		assertEquals(1.0, paycheck.hundredsValueOf("um real e dezoito centavos"), 0.0001);
 		assertEquals(0.0, paycheck.hundredsValueOf("dezoito centavos"), 0.0001);
+		assertEquals(0.0, paycheck.hundredsValueOf("dois mil reais e cinquenta centavos"), 0.0001);
 	}
 	
 	@Test
@@ -41,6 +42,13 @@ public class PaycheckTest {
 		assertEquals(0.18, paycheck.centsValueOf("dois mil quinhentos e vinte e tres reais e dezoito centavos"), 0.0001);
 		assertEquals(0.75, paycheck.centsValueOf("quinhentos e vinte e tres reais e setenta e cinco centavos"), 0.0001);
 		assertEquals(0.0, paycheck.centsValueOf("um mil reais"), 0.0001);
+	}
+	
+	@Test
+	public void should_return_the_value_of_paycheck() {
+		assertEquals(2523.18, paycheck.valueOf("dois mil quinhentos e vinte e tres reais e dezoito centavos"), 0.0001);		
+		assertEquals(523.18, paycheck.valueOf("quinhentos e vinte e tres reais e dezoito centavos"), 0.0001);
+		assertEquals(0.18, paycheck.valueOf("dezoito centavos"), 0.0001);
 	}
 	
 }

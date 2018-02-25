@@ -101,4 +101,13 @@ public class Paycheck {
 		return calculate(array[array.length-1]) * 0.01;
 	}
 
+	public double valueOf(String valueInFull) {
+		
+		double thousands = thousandsValueOf(valueInFull);
+		double hundreds = hundredsValueOf(valueInFull);
+		double cents = centsValueOf(valueInFull);
+		
+		return thousands + hundreds + cents;
+	}
+
 }
